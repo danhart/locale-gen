@@ -29,5 +29,5 @@ node[:localegen][:lang].each do |lang|
 end
 
 execute "locale_gen" do
-    command "locale-gen"
+  command "locale-gen"
 end
