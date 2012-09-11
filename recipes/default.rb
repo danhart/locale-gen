@@ -20,17 +20,17 @@
 
 case node[:platform]
 when 'debian'
-node[:localegen][:lang].each do |lang|
-  bash "append_locale" do
-    user "root"
-    environment ({'lang' => lang})
-    code <<-EOH
-    echo $lang >> /etc/locale.gen
-    EOH
+  node[:localegen][:lang].each do |lang|
+    bash "append_locale" do
+      user "root"
+      environment ({'lang' => lang})
+      code <<-EOH
+      echo $lang >> /etc/locale.gen
+      EOH
+    end
   end
-end
 
-execute "locale_gen" do
-  command "locale-gen"
-end
+  execute "locale_gen" do
+    command "locale-gen"
+  end
 end
