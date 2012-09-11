@@ -33,4 +33,12 @@ when 'debian'
   execute "locale_gen" do
     command "locale-gen"
   end
+when 'ubuntu'
+  node[:localegen][:lang].each do |lang|
+    bash "append_locale" do
+      user "root"
+      environment ({'lang' => lang})
+      code "locale-gen $lang"
+    end
+  end
 end
