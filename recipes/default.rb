@@ -18,6 +18,8 @@
 # limitations under the License.
 #
 
+case node[:platform]
+when 'debian'
 node[:localegen][:lang].each do |lang|
   bash "append_locale" do
     user "root"
@@ -30,4 +32,5 @@ end
 
 execute "locale_gen" do
   command "locale-gen"
+end
 end
