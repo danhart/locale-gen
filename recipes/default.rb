@@ -18,16 +18,16 @@
 # limitations under the License.
 #
 
-node[:localegen][:lang].each do |lang|
-  bash "append_locale" do
-    user "root"
-    environment ({'lang' => lang})
-    code <<-EOH
-    echo $lang >> /etc/locale.gen
-    EOH
-  end
+execute "locale-gen" do
+  action :nothing
+  command "locale-gen"
 end
 
-execute "locale_gen" do
-    command "locale-gen"
+file "/etc/locale.gen" do
+  action :create
+  owner "root"
+  group "root"
+  mode "0644"
+  content node[:localegen][:lang].join("\n") + "\n"
+  notifies :run, "execute[locale-gen]", :immediate
 end
