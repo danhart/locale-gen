@@ -1,0 +1,3 @@
+cookbook "locale-gen" do
+
+end
