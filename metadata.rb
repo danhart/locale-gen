@@ -1,3 +1,4 @@
+name			 "locale-gen"
 maintainer       "Dan Hart"
 maintainer_email "dan@danhart.co.uk"
 license          "Apache 2.0"

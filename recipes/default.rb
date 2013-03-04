@@ -18,12 +18,19 @@
 # limitations under the License.
 #
 
-execute "locale-gen" do
-  action :nothing
-  command "locale-gen"
+if platform?("ubuntu") and node[:lsb][:codename] == "precise" then
+  node.set["localegen"]["locale_file"] = "/var/lib/locales/supported.d/local"
+else
+	node.set["localegen"]["locale_file"] = "/etc/locale.gen"
 end
 
-file "/etc/locale.gen" do
+# declare the execute["local-gen"] before notifying it.
+execute "locale-gen" do
+    command "locale-gen"
+    action :nothing
+end 
+
+file node["localegen"]["locale_file"] do
   action :create
   owner "root"
   group "root"
