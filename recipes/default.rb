@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-if platform?("ubuntu") and node[:lsb][:codename] == "precise" then
+if platform?("ubuntu") then
   node.set["localegen"]["locale_file"] = "/var/lib/locales/supported.d/local"
 else
 	node.set["localegen"]["locale_file"] = "/etc/locale.gen"
@@ -28,7 +28,7 @@ end
 execute "locale-gen" do
     command "locale-gen"
     action :nothing
-end 
+end
 
 file node["localegen"]["locale_file"] do
   action :create
