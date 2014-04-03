@@ -12,7 +12,7 @@ Tested on Ubuntu 12 (precise)
 Attributes
 ==========
 
-* `node[:localegen][:lang]` - is an array of locales you wish to add and generate. 
+* `node[:localegen][:lang]` - is an array of locales you wish to add and generate.
 
 Usage
 =====
@@ -30,3 +30,5 @@ Change Log
 Adds the following:
 * Support for Ubuntu 12
 * Support for test-kitchen
+
+0.0.4 - Add chefspec tests. Add rubocop tests. Add foodcritic tests.

@@ -11,5 +11,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[locale-gen::default]
+      - recipe[tc-locale-gen::default]
     attributes:

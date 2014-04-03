@@ -2,7 +2,7 @@ require_relative '../spec_helper'
 
 require 'chefspec'
 
-describe 'locale-gen::default' do
+describe 'tc-locale-gen::default' do
   let(:chef_run_precise) { ChefSpec::Runner.new(:platform => 'ubuntu', :version => '12.04').converge(described_recipe) }
   let(:chef_run_debian) { ChefSpec::Runner.new(:platform => 'debian', :version => '7.4').converge(described_recipe) }
 

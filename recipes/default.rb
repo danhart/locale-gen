@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: locale-gen
+# Cookbook Name:: tc-locale-gen
 # Recipe:: default
 # Author:: Dan Hart <dan@danhart.co.uk>
 #
