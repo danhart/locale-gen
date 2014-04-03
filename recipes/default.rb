@@ -19,9 +19,9 @@
 #
 
 if platform?('ubuntu') then
-  node.set['localegen']['locale_file'] = '/var/lib/locales/supported.d/local'
+  node.set['tc-locale-gen']['locale_file'] = '/var/lib/locales/supported.d/local'
 else
-  node.set['localegen']['locale_file'] = '/etc/locale.gen'
+  node.set['tc-locale-gen']['locale_file'] = '/etc/locale.gen'
 end
 
 # declare the execute['locale-gen'] before notifying it.
@@ -30,11 +30,11 @@ execute 'locale-gen' do
   action :nothing
 end
 
-file node['localegen']['locale_file'] do
+file node['tc-locale-gen']['locale_file'] do
   action :create
   owner 'root'
   group 'root'
   mode '0644'
-  content node['localegen']['lang'].join('\n') + '\n'
+  content node['tc-locale-gen']['lang'].join('\n') + '\n'
   notifies :run, 'execute[locale-gen]', :immediate
 end
