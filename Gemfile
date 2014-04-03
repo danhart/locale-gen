@@ -1,3 +1,7 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gem 'test-kitchen'
+gem 'chefspec'
+gem 'berkshelf', '~> 3.0.0beta7'
+gem 'foodcritic', '~> 3.0'
+gem 'rake'
+gem 'rubocop'
