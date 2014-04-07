@@ -6,13 +6,13 @@ Adds new locales and generates them
 Requirements
 ============
 
-Tested on Debian Squeeze
-Tested on Ubuntu 12 (precise)
+Tested on Debian Squeeze, Wheezy
+Tested on Ubuntu 12.04, 13.04, 13.10
 
 Attributes
 ==========
 
-* `node[:localegen][:lang]` - is an array of locales you wish to add and generate.
+* `node['tc-locale-gen']['lang']` - is an array of locales you wish to add and generate.
 
 Usage
 =====
@@ -32,3 +32,6 @@ Adds the following:
 * Support for test-kitchen
 
 0.0.4 - Add chefspec tests. Add rubocop tests. Add foodcritic tests.
+
+0.0.8 - Fix bug introduced in previous version. Update .rubocop.yml, fix ruby style
+        complaint from rubocop. Tested on more versions of ubuntu and debian.

@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-if platform?('ubuntu') then
+if platform?('ubuntu')
   node.set['tc-locale-gen']['locale_file'] = '/var/lib/locales/supported.d/local'
 else
   node.set['tc-locale-gen']['locale_file'] = '/etc/locale.gen'
@@ -35,6 +35,6 @@ file node['tc-locale-gen']['locale_file'] do
   owner 'root'
   group 'root'
   mode '0644'
-  content node['tc-locale-gen']['lang'].join('\n') + '\n'
+  content node['tc-locale-gen']['lang'].join("\n") + "\n"
   notifies :run, 'execute[locale-gen]', :immediate
 end
