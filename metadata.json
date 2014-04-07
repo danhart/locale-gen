@@ -1,5 +1,5 @@
 {
-  "name": "locale-gen",
+  "name": "tc-locale-gen",
   "description": "Adds new locales and generates them",
   "long_description": "Adds new locales and generates them",
   "maintainer": "Dan Hart",
@@ -27,5 +27,5 @@
   },
   "recipes": {
   },
-  "version": "0.0.1"
+  "version": "0.0.8"
 }

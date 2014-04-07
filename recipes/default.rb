@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: locale-gen
+# Cookbook Name:: tc-locale-gen
 # Recipe:: default
 # Author:: Dan Hart <dan@danhart.co.uk>
 #
@@ -18,23 +18,23 @@
 # limitations under the License.
 #
 
-if platform?("ubuntu") and node[:lsb][:codename] == "precise" then
-  node.set["localegen"]["locale_file"] = "/var/lib/locales/supported.d/local"
+if platform?('ubuntu')
+  node.set['tc-locale-gen']['locale_file'] = '/var/lib/locales/supported.d/local'
 else
-	node.set["localegen"]["locale_file"] = "/etc/locale.gen"
+  node.set['tc-locale-gen']['locale_file'] = '/etc/locale.gen'
 end
 
-# declare the execute["local-gen"] before notifying it.
-execute "locale-gen" do
-    command "locale-gen"
-    action :nothing
-end 
+# declare the execute['locale-gen'] before notifying it.
+execute 'locale-gen' do
+  command 'locale-gen'
+  action :nothing
+end
 
-file node["localegen"]["locale_file"] do
+file node['tc-locale-gen']['locale_file'] do
   action :create
-  owner "root"
-  group "root"
-  mode "0644"
-  content node[:localegen][:lang].join("\n") + "\n"
-  notifies :run, "execute[locale-gen]", :immediate
+  owner 'root'
+  group 'root'
+  mode '0644'
+  content node['tc-locale-gen']['lang'].join("\n") + "\n"
+  notifies :run, 'execute[locale-gen]', :immediate
 end

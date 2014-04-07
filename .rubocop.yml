@@ -1,0 +1,38 @@
+AllCops:
+  Include:
+    - Berksfile
+    - Gemfile
+    - Rakefile
+    - Thorfile
+    - Guardfile
+  Exclude:
+    - vendor/**
+
+AlignParameters:
+  Enabled: false
+ClassLength:
+  Enabled: false
+Documentation:
+  Enabled: false
+Encoding:
+  Enabled: false
+EmptyLiteral:
+  Enabled: false
+HashSyntax:
+  Enabled: true
+  EnforcedStyle: hash_rockets
+LineLength:
+  Enabled: false
+  Max: 200
+MethodLength:
+  Enabled: false
+SignalException:
+  Enabled: false
+SingleSpaceBeforeFirstArg:
+  Enabled: true
+  Exclude:
+    - metadata.rb
+TrailingComma:
+  Enabled: false
+WordArray:
+  Enabled: false
