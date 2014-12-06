@@ -18,12 +18,6 @@
 # limitations under the License.
 #
 
-if platform?("ubuntu") then
-  node.set["localegen"]["locale_file"] = "/var/lib/locales/supported.d/local"
-else
-	node.set["localegen"]["locale_file"] = "/etc/locale.gen"
-end
-
 # declare the execute["local-gen"] before notifying it.
 execute "locale-gen" do
     command "locale-gen"
